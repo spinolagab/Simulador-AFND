@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include "filereading.c"
 
 /*
  * ==Entrada==
@@ -39,12 +36,31 @@
  * b not OK
  *
  */
-int main(int argc, char* argv){
-   char buffer[1024];
-   scanf("%s", &buffer);
-   // TODO: Trocar o \n por \0
-   uint32_t alphabetSize = strlen(buffer);
-   char *alphabet = malloc( (*alphabet) * alphabetSize)	;
+int main(int argc, char* argv[]){
+   if (argc < 2){
+      printf("Argumentos insuficientes! Uso: ./<executavel> <arquivo de entrada>\n");
+      return 1;
+   }
+   Automaton automato;
+   if ( readFile(argv[1], &automato) != 0){
+      return 1;  
+   }
+
+   printf ("Alfabeto: %s\n", automato.alphabet);
+   printf ("Número de estados: %d\n", automato.numStates);
+   printf ("Estados finais: ");
+   for (size_t i = 0; i < automato.numFinalStates; i++)
+      printf ("%d ", automato.finalStates[i]);
+
+   printf ("\nNúmero de transições: %d\n", automato.numTransitions);
+   for (size_t i = 0; i < automato.numTransitions; i++)
+      printf ("Transição: %d %c %d\n", 
+               automato.transitions[i][0],
+               (char)automato.transitions[i][1],
+               automato.transitions[i][2]
+      );
+
+
 
 
 }
