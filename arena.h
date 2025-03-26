@@ -14,5 +14,5 @@ typedef struct{
 
 Arena arenaCreate (size_t capacity);
 void *arenaAlloc (Arena *arena, size_t size);
-void *arenaFree (Arena *arena);
+void arenaFree (Arena *arena);
 #endif

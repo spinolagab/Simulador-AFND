@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Node.h"
+#include "node.h"
 
 // Getters
 char* getName(Node *state){

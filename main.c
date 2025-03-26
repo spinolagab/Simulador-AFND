@@ -47,10 +47,10 @@ int main(int argc, char* argv[]){
       return 1;  
    }
 
-   Arena arena = arenaCreate(automato.numStates + 1);
-   Node *n1 = arenaAllocate (&arena,1);
-   Node *n2 = arenaAllocate (&arena,1);
-   Node *n3 = arenaAllocate (&arena,1);
+   Arena arena = arenaCreate(automato.numStates);
+   Node *n1 = arenaAlloc (&arena,1);
+   Node *n2 = arenaAlloc (&arena,1);
+   Node *n3 = arenaAlloc (&arena,1);
 
    printf ("Alfabeto: %s\n", automato.alphabet);
    printf ("Número de estados: %d\n", automato.numStates);

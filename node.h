@@ -1,5 +1,5 @@
-#ifndef __Node_H__
-#define __Node_H__
+#ifndef __NODE_H__
+#define __NODE_H__
 
 typedef struct Dictionary{
   char letter;
