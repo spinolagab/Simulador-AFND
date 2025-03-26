@@ -1,4 +1,5 @@
 #include "filereading.c"
+#include "arena.c"
 
 /*
  * ==Entrada==
@@ -46,6 +47,11 @@ int main(int argc, char* argv[]){
       return 1;  
    }
 
+   Arena arena = arenaCreate(automato.numStates + 1);
+   Node *n1 = arenaAllocate (&arena,1);
+   Node *n2 = arenaAllocate (&arena,1);
+   Node *n3 = arenaAllocate (&arena,1);
+
    printf ("Alfabeto: %s\n", automato.alphabet);
    printf ("Número de estados: %d\n", automato.numStates);
    printf ("Estados finais: ");
@@ -59,8 +65,11 @@ int main(int argc, char* argv[]){
                (char)automato.transitions[i][1],
                automato.transitions[i][2]
       );
+   
+   for (size_t i = 0; i < automato.numWords; i++){
+      printf ("%s\n", automato.words[i]);
+   }
 
-
-
+   arenaFree(&arena);
 
 }
