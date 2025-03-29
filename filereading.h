@@ -12,7 +12,8 @@ typedef struct {
     int numFinalStates;
     int finalStates[MAX_STATES];
     int numTransitions;
-    int transitions[MAX_TRANSITIONS][3];
+    int transitions[MAX_TRANSITIONS][2];
+    char transitionSymbols[MAX_TRANSITIONS];
     int numWords;
     char words[MAX_ALPHABET_SIZE][MAX_WORD];
 } Automaton;
